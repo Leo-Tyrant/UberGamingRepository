@@ -3,11 +3,9 @@ package com.example.ubergaming2
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
-import org.w3c.dom.Text
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,6 +24,13 @@ class MainActivity : AppCompatActivity() {
         BotonListadoJuegos.setOnClickListener{
             val intent = Intent(this, ListadoJuegos::class.java)
              startActivity(intent)
+        }
+
+        //Boton que abre el Tab Activity-Pagina de Listado de consolas
+        val BotonListadoConsolas = findViewById<Button>(R.id.btnListadoConsolas)
+        BotonListadoConsolas.setOnClickListener{
+            val intent = Intent(this, ListadoConsolas::class.java)
+            startActivity(intent)
         }
 
 

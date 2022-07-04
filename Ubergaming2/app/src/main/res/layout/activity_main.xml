@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+
     <TextView
         android:id="@+id/id_saludo"
         android:layout_width="wrap_content"
@@ -42,6 +43,17 @@
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/id_saludo"
-        app:layout_constraintVertical_bias="0.405" />
+        app:layout_constraintVertical_bias="0.324" />
+
+    <Button
+        android:id="@+id/btnListadoConsolas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Click para listado de consolas"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/id_saludo"
+        app:layout_constraintVertical_bias="0.516" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
