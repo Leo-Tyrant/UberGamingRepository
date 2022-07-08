@@ -1,36 +1,42 @@
 package com.example.ubergaming2
 
-import android.os.Bundle
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
-import com.google.android.material.tabs.TabLayout
-import androidx.viewpager.widget.ViewPager
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
-import android.view.Menu
-import android.view.MenuItem
-import com.example.ubergaming2.ui.main.SectionsPagerAdapter
-import com.example.ubergaming2.databinding.ActivityListadoJuegosBinding
+import android.os.Bundle
+import android.widget.ImageButton
 
 class ListadoJuegos : AppCompatActivity() {
-
-    private lateinit var binding: ActivityListadoJuegosBinding
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_listado_juegos)
 
-        binding = ActivityListadoJuegosBinding.inflate(layoutInflater)
-        setContentView(binding.root)
 
-        val sectionsPagerAdapter = SectionsPagerAdapter(this, supportFragmentManager)
-        val viewPager: ViewPager = binding.viewPager
-        viewPager.adapter = sectionsPagerAdapter
-        val tabs: TabLayout = binding.tabs
-        tabs.setupWithViewPager(viewPager)
-        val fab: FloatingActionButton = binding.fab
-
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
+        //Boton RESIDENT EVIL que abre la Pagina de DETALLE del juego
+        val botonDetalleJuego = findViewById<ImageButton>(R.id.image_residentevil)
+        botonDetalleJuego.setOnClickListener{
+            val intent = Intent(this, DetalleJuego::class.java)
+            startActivity(intent)
         }
+
+        //Boton NINTENDO que abre la Pagina de Listado de juegos
+        val BotonListadoJuegos2 = findViewById<ImageButton>(R.id.image_zelda)
+        BotonListadoJuegos2.setOnClickListener{
+            val intent = Intent(this, ListadoJuegos::class.java)
+            startActivity(intent)
+        }
+
+        //Boton MICROSOFT que abre la Pagina de Listado de juegos
+        val BotonListadoJuegos3 = findViewById<ImageButton>(R.id.image_halo)
+        BotonListadoJuegos3.setOnClickListener{
+            val intent = Intent(this, ListadoJuegos::class.java)
+            startActivity(intent)
+        }
+
+
+
+
+
+
+
     }
 }
