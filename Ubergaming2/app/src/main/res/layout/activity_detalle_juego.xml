@@ -9,26 +9,26 @@
 
     <ImageButton
         android:id="@+id/image_sony"
-        android:layout_width="351dp"
-        android:layout_height="154dp"
-        android:layout_marginBottom="448dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="33dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="35dp"
         android:scaleType="fitCenter"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewDescripcionJuego"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textViewTituloJuego"
         app:srcCompat="@drawable/residentevil" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
-        android:layout_width="411dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginBottom="1dp"
+        android:layout_width="0dp"
+        android:layout_height="91dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonAgregar">
+        app:layout_constraintStart_toStartOf="parent">
 
 
         <Button
@@ -68,13 +68,11 @@
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="1dp"
         android:layout_marginTop="1dp"
         android:layout_marginEnd="1dp"
-        android:layout_marginBottom="609dp"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -102,10 +100,9 @@
         android:id="@+id/textViewTituloJuego"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="97dp"
-        android:layout_marginBottom="188dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="91dp"
         android:text="Resident Evil"
-        app:layout_constraintBottom_toTopOf="@+id/textViewDescripcionJuego"
         app:layout_constraintStart_toStartOf="@+id/image_sony"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -113,67 +110,60 @@
         android:id="@+id/textViewDescripcionJuego"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
         android:layout_marginStart="7dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="8dp"
         android:text="Descripción:"
         app:layout_constraintBottom_toTopOf="@+id/descripcionJuego"
-        app:layout_constraintStart_toStartOf="@+id/image_sony"
-        app:layout_constraintTop_toBottomOf="@+id/textViewTituloJuego" />
+        app:layout_constraintStart_toStartOf="@+id/descripcionJuego" />
 
     <EditText
         android:id="@+id/descripcionJuego"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="33dp"
-        android:layout_marginEnd="33dp"
-        android:layout_marginBottom="16dp"
+        android:layout_height="91dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
         android:ems="10"
         android:gravity="start|top"
         android:inputType="textMultiLine"
         android:text="Resident Evil, is a Japanese horror game series and media franchise created by Capcom. It consists of survival horror, third-person shooter and first-person shooter games, with players typically surviving in environments filled with zombies and other creatures. "
         android:textSize="12dp"
-        app:layout_constraintBottom_toTopOf="@+id/textViewPrecio"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewDescripcionJuego" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textViewPrecio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
-        android:layout_marginEnd="31dp"
-        android:layout_marginBottom="63dp"
+        android:layout_marginStart="127dp"
+        android:layout_marginTop="40dp"
         android:text="Precio:"
-        app:layout_constraintBottom_toTopOf="@+id/buttonAgregar"
-        app:layout_constraintEnd_toStartOf="@+id/PrecioNumero"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/descripcionJuego" />
-
-    <EditText
-        android:id="@+id/PrecioNumero"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="19dp"
-        android:ems="10"
-        android:inputType="numberDecimal"
-        android:text="$10.50"
-       android:textAlignment="textEnd"
-        app:layout_constraintBottom_toTopOf="@+id/buttonAgregar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textViewPrecio" />
 
     <Button
         android:id="@+id/buttonAgregar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="89dp"
+        android:layout_marginTop="38dp"
+        android:layout_marginEnd="38dp"
         android:text="Agregar"
-        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewPrecio" />
+        app:layout_constraintTop_toBottomOf="@+id/PrecioNumero" />
+
+    <EditText
+        android:id="@+id/PrecioNumero"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:text="$10.50"
+        android:textAlignment="textEnd"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/descripcionJuego" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
