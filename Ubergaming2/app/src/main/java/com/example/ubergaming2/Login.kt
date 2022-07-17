@@ -7,7 +7,7 @@ import android.util.Log
 import androidx.activity.result.IntentSenderRequest
 import androidx.activity.result.contract.ActivityResultContracts
 
-import com.example.ubergaming2.databinding.ActivityMainBinding
+import com.example.ubergaming2.databinding.ActivityLoginBinding
 import com.google.android.gms.auth.api.identity.BeginSignInRequest
 import com.google.android.gms.auth.api.identity.Identity
 import com.google.android.gms.auth.api.identity.SignInClient
@@ -17,17 +17,17 @@ import com.google.android.material.snackbar.Snackbar
 
 class Login : AppCompatActivity() {
 
-    private var _binding: ActivityMainBinding? = null
+    private var _binding: ActivityLoginBinding? = null
     private val binding get() = _binding!!
 
-    private var oneTapClient: SignInClient? = null
+    private var appClient: SignInClient? = null
     private var signUpRequest: BeginSignInRequest? = null
     private var signInRequest: BeginSignInRequest? = null
 
-    private val oneTapResult =
+    private val loginResult =
         registerForActivityResult(ActivityResultContracts.StartIntentSenderForResult()) { result ->
             try {
-                val credential = oneTapClient?.getSignInCredentialFromIntent(result.data)
+                val credential = appClient?.getSignInCredentialFromIntent(result.data)
                 val idToken = credential?.googleIdToken
                 when {
                     idToken != null -> {
@@ -35,11 +35,11 @@ class Login : AppCompatActivity() {
                         // with your backend.
                         val msg = "idToken: $idToken"
                         Snackbar.make(binding.root, msg, Snackbar.LENGTH_INDEFINITE).show()
-                        Log.d("one tap", msg)
+                        Log.d("Login", msg)
                     }
                     else -> {
                         // Shouldn't happen.
-                        Log.d("one tap", "No ID token!")
+                        Log.d("Login", "No ID token!")
                         Snackbar.make(binding.root, "No ID token!", Snackbar.LENGTH_INDEFINITE)
                             .show()
                     }
@@ -47,7 +47,7 @@ class Login : AppCompatActivity() {
             } catch (e: ApiException) {
                 when (e.statusCode) {
                     CommonStatusCodes.CANCELED -> {
-                        Log.d("one tap", "One-tap dialog was closed.")
+                        Log.d("Login", "One-tap dialog was closed.")
                         // Don't re-prompt the user.
                         Snackbar.make(
                             binding.root,
@@ -56,17 +56,17 @@ class Login : AppCompatActivity() {
                         ).show()
                     }
                     CommonStatusCodes.NETWORK_ERROR -> {
-                        Log.d("one tap", "One-tap encountered a network error.")
+                        Log.d("Login", "One-tap encountered a network error.")
                         // Try again or just ignore.
                         Snackbar.make(
                             binding.root,
-                            "One-tap encountered a network error.",
+                            "Login encountered a network error.",
                             Snackbar.LENGTH_INDEFINITE
                         ).show()
                     }
                     else -> {
                         Log.d(
-                            "one tap", "Couldn't get credential from result." +
+                            "Login", "Couldn't get credential from result." +
                                     " (${e.localizedMessage})"
                         )
                         Snackbar.make(
@@ -81,10 +81,10 @@ class Login : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        _binding = ActivityMainBinding.inflate(layoutInflater)
+        _binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        oneTapClient = Identity.getSignInClient(this)
+        appClient = Identity.getSignInClient(this)
         signUpRequest = BeginSignInRequest.builder()
             .setGoogleIdTokenRequestOptions(
                 BeginSignInRequest.GoogleIdTokenRequestOptions.builder()
@@ -108,18 +108,17 @@ class Login : AppCompatActivity() {
             )
             .build()
 
-        /*binding.commonGoogleSigninBtnIconDarkNormal.setOnClickListener {
+        binding.btnSignIn.setOnClickListener {
             displaySignIn()
-
-        }*/
+        }
     }
 
     private fun displaySignIn(){
-        oneTapClient?.beginSignIn(signInRequest!!)
+        appClient?.beginSignIn(signInRequest!!)
             ?.addOnSuccessListener(this) { result ->
                 try {
                     val ib = IntentSenderRequest.Builder(result.pendingIntent.intentSender).build()
-                    oneTapResult.launch(ib)
+                    loginResult.launch(ib)
                 } catch (e: IntentSender.SendIntentException) {
                     Log.e("btn click", "Couldn't start One Tap UI: ${e.localizedMessage}")
                 }
@@ -132,13 +131,13 @@ class Login : AppCompatActivity() {
     }
 
     private fun displaySignUp() {
-        oneTapClient?.beginSignIn(signUpRequest!!)
+        appClient?.beginSignIn(signUpRequest!!)
             ?.addOnSuccessListener(this) { result ->
                 try {
                     val ib = IntentSenderRequest.Builder(result.pendingIntent.intentSender).build()
-                    oneTapResult.launch(ib)
+                    loginResult.launch(ib)
                 } catch (e: IntentSender.SendIntentException) {
-                    Log.e("btn click", "Couldn't start One Tap UI: ${e.localizedMessage}")
+                    Log.e("btn click", "Couldn't start Login  UI: ${e.localizedMessage}")
                 }
             }
             ?.addOnFailureListener(this) { e ->
