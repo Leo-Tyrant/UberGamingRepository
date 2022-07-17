@@ -33,6 +33,13 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        //Boton que abre el EJEMPLO DE API CIUDAD
+        val BotonCiudad = findViewById<Button>(R.id.buttonCity)
+        BotonCiudad.setOnClickListener{
+            val intent = Intent(this, EjemploMapa::class.java)
+            startActivity(intent)
+        }
+
 
 
         val numero = 0; //constante
