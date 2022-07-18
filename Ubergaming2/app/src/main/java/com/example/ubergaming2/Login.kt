@@ -51,7 +51,7 @@ class Login : AppCompatActivity() {
                         // Don't re-prompt the user.
                         Snackbar.make(
                             binding.root,
-                            "One-tap dialog was closed.",
+                            "Login dialog was closed.",
                             Snackbar.LENGTH_INDEFINITE
                         ).show()
                     }

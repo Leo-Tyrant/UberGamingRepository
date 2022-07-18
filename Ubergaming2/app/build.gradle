@@ -12,7 +12,7 @@ android {
         targetSdk 32
         versionCode 1
         versionName "1.0"
-        buildConfigField("String","WEB_CLIENT_ID",'"810359655158-b4gpk1hc967rqb2gvvus7l4h11jt1s76.apps.googleusercontent.com"')
+        buildConfigField("String","WEB_CLIENT_ID",'"448738046682-okidfr900uitp9oi40d44ktn6nhj7hh4.apps.googleusercontent.com"')
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
