@@ -13,6 +13,14 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         val miTexto = findViewById<TextView>(R.id.id_saludo);
 
+
+        //Boton que abre el TEST de LOGIN con GOOGLE
+        val buttonLogin = findViewById<Button>(R.id.buttonLogin)
+        buttonLogin.setOnClickListener{
+            val intent = Intent(this, Login::class.java)
+            startActivity(intent)
+        }
+
         //Boton que abre el Tab Activity-Pagina de Listado de juegos
         val myButton:Button = findViewById(R.id.btnSaludar);
         myButton.setOnClickListener {
