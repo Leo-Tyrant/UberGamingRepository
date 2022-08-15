@@ -39,21 +39,7 @@
             android:text="Inicio"
             android:textSize="10dp" />
 
-        <Button
-            android:id="@+id/BotonBuscar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="120dp"
-            android:text="Buscar"
-            android:textSize="10dp" />
 
-        <Button
-            android:id="@+id/BotonCarrito"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="220dp"
-            android:text="Carrito"
-            android:textSize="10dp" />
 
         <Button
             android:id="@+id/BotonMiCuenta"
@@ -92,7 +78,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="120dp"
-            android:text="Editar"
+            android:text="Login"
             android:textSize="10dp" />
 
 
