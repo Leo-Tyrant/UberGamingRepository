@@ -3,6 +3,7 @@ package com.example.ubergaming2
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import android.widget.ImageButton
 
 class DetalleJuego : AppCompatActivity() {
@@ -18,7 +19,12 @@ class DetalleJuego : AppCompatActivity() {
             startActivity(intent)
         }
 
-
+        //Boton que manda al INICIO (Listado de Consolas)
+        val BotonInicio = findViewById<Button>(R.id.BotonInicio)
+        BotonInicio.setOnClickListener{
+            val intent = Intent(this, ListadoConsolas::class.java)
+            startActivity(intent)
+        }
 
 
 

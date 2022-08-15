@@ -1,11 +1,13 @@
 package com.example.ubergaming2
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -48,6 +50,24 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        //Boton que abre el Insertar Usuario en DB
+        val botonInsertarUsuario = findViewById<Button>(R.id.buttonBuscarUsuario)
+        botonInsertarUsuario.setOnClickListener{
+            val intent = Intent(this, presentacion::class.java)
+            startActivity(intent)
+        }
+
+        //Boton que abre el Buscar Usuario en DB
+
+        val botonBuscarUsuario = findViewById<View>(R.id.buttonBuscarUsuario) as Button
+        val edtTexto = findViewById<View>(R.id.editTextTextPersonName) as EditText
+
+        botonBuscarUsuario.setOnClickListener(View.OnClickListener {
+            val cadenaBusqueda: String = edtTexto.getText().toString()
+            val laPresentacion = Intent(this@MainActivity, presentacion::class.java)
+            laPresentacion.putExtra("cadena", cadenaBusqueda)
+            startActivity(laPresentacion)
+        })
 
 
         val numero = 0; //constante

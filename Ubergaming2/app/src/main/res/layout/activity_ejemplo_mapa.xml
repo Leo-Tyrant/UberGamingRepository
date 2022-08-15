@@ -15,7 +15,7 @@
         android:layout_marginTop="71dp"
         android:layout_marginEnd="68dp"
         android:layout_marginBottom="39dp"
-        android:text="Weather App"
+        android:text="TEMPERATURA"
         android:textColor="#F8F9FA"
         android:textSize="48sp"
         app:layout_constraintBottom_toTopOf="@+id/txtCity"
@@ -30,7 +30,7 @@
         android:layout_marginBottom="20dp"
         android:background="@color/white"
         android:ems="10"
-        android:hint="Type your City"
+        android:hint="Digite su ciudad"
         android:inputType="textPersonName"
         android:textColor="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/textViewResultado"
@@ -74,38 +74,38 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-        <TableRow>
+        <TableRow android:layout_marginLeft="10dp">
 
             <TextView
                 android:padding="3dip"
-                android:text="Temperature: " />
+                android:text="Temperatura: " />
 
             <TextView android:id="@+id/textViewInfoCiudad" />
         </TableRow>
 
-        <TableRow>
+        <TableRow android:layout_marginLeft="10dp">
 
             <TextView
                 android:padding="3dip"
-                android:text="Feels like: " />
+                android:text="Se siente como: " />
 
             <TextView android:id="@+id/textViewFeelsLike" />
         </TableRow>
 
-        <TableRow>
+        <TableRow android:layout_marginLeft="10dp">
 
             <TextView
                 android:padding="3dip"
-                android:text="Pressure: " />
+                android:text="Presión: " />
 
             <TextView android:id="@+id/textViewPressure" />
         </TableRow>
 
-        <TableRow>
+        <TableRow android:layout_marginLeft="10dp">
 
             <TextView
                 android:padding="3dip"
-                android:text="Humidity: " />
+                android:text="Humidad: " />
 
             <TextView android:id="@+id/textViewHumidy" />
         </TableRow>

@@ -43,12 +43,6 @@ class EjemploMapa : AppCompatActivity() {
 
                 val datos = it.getJSONObject("main")
 
-          //   val weather = Weather()
-
-
-
-            //    Log.d("EjemploMapa", it.toString())
-            //    textViewInfoCiudad.text = datos.toString()
                 val temp = datos.getDouble("temp")
                 val feelsLike = datos.getDouble("feels_like")
                 val pressure = datos.getInt("pressure")
@@ -63,10 +57,8 @@ class EjemploMapa : AppCompatActivity() {
                 textViewHumidy.text =  weather.humidity.toString()
 
 
-              //  textViewInfoCiudad.text = datos.getString("temp")
-
             }, {
-             //   Log.d("EjemploMapa ERror", it.toString())
+
                 Toast.makeText(this, "Request not found", Toast.LENGTH_LONG).show()
                 textViewResultado.text = "Request not found"
             }
