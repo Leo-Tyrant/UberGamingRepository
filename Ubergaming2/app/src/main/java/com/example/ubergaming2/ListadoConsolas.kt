@@ -54,6 +54,13 @@ class ListadoConsolas : AppCompatActivity() {
             startActivity(intent)
         }
 
+        //Boton que manda a MI CUENTA
+        val BotonMiCuenta = findViewById<Button>(R.id.BotonMiCuenta)
+        BotonMiCuenta.setOnClickListener{
+            val intent = Intent(this, UserAccount::class.java)
+            startActivity(intent)
+        }
+
 
 
 

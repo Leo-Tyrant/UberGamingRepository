@@ -40,6 +40,20 @@ class ListadoJuegos : AppCompatActivity() {
             startActivity(intent)
         }
 
+        //Boton que manda al LOGIN
+        val BotonEditar = findViewById<Button>(R.id.BotonEditar)
+        BotonEditar.setOnClickListener{
+            val intent = Intent(this, UsersLogin::class.java)
+            startActivity(intent)
+        }
+
+        //Boton que manda a MI CUENTA
+        val BotonMiCuenta = findViewById<Button>(R.id.BotonMiCuenta)
+        BotonMiCuenta.setOnClickListener{
+            val intent = Intent(this, UserAccount::class.java)
+            startActivity(intent)
+        }
+
 
     }
 }
