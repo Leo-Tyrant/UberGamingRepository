@@ -54,9 +54,14 @@ class ListadoConsolas : AppCompatActivity() {
             val intent = Intent(this, UsersLogin::class.java)
             startActivity(intent)
         }
+        //Boton Para el color
+        val Botoncolor = findViewById<Button>(R.id.buttonCambiarColor)
+        Botoncolor.setOnClickListener{
+            val intent = Intent(this, ColorPickerJava::class.java)
+            startActivity(intent)
+        }
 
         //Boton que lleva a Mi cuenta si el boton de de Login no tiene escrito la palabra "Login"
-        //Si la tiene lleva a la actividad Login
             val BotonMiCuenta = findViewById<Button>(R.id.BotonMiCuenta)
             BotonMiCuenta.setOnClickListener{
                 if (BotonEditar.text!= "Login"){
@@ -73,13 +78,6 @@ class ListadoConsolas : AppCompatActivity() {
 
 
 
-
-        //Boton Para el COLOR PICKER
-        val buttonCambiarColor = findViewById<Button>(R.id.buttonCambiarColor)
-        buttonCambiarColor.setOnClickListener{
-            val intent = Intent(this, ColorPickerJava::class.java)
-            startActivity(intent)
-        }
 
 
 

@@ -6,41 +6,37 @@
     android:layout_height="match_parent"
     tools:context=".ListadoJuegos">
 
-    <ImageButton
+    <Button
         android:id="@+id/image_halo"
         android:layout_width="351dp"
         android:layout_height="154dp"
         android:layout_marginBottom="164dp"
-        android:contentDescription="@string/appbar_scrolling_view_behavior"
-        android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/halo" />
+        android:text=""/>
 
 
-    <ImageButton
+    <Button
         android:id="@+id/image_zelda"
         android:layout_width="351dp"
         android:layout_height="154dp"
         android:layout_marginBottom="336dp"
-        android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/zelda" />
+        android:text=""/>
 
 
-    <ImageButton
+    <Button
         android:id="@+id/image_residentevil"
         android:layout_width="351dp"
         android:layout_height="154dp"
         android:layout_marginBottom="512dp"
-        android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/residentevil" />
+        android:text="" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"

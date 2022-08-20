@@ -27,8 +27,6 @@ public class UsersLogin extends AppCompatActivity {
             }
         });
 
-        //Boton que lleva a Mi cuenta si el boton de de Login no tiene escrito la palabra "Login"
-        //Si la tiene lleva a la actividad Login
 
 
     }

@@ -4,12 +4,20 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import yuku.ambilwarna.AmbilWarnaDialog;
 import android.widget.LinearLayout;
+import android.widget.Toast;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 public class ColorPickerJava extends AppCompatActivity {
 
@@ -68,7 +76,8 @@ public class ColorPickerJava extends AppCompatActivity {
 
                 //guarda en variable el color de fondo escogido
                  variableColorDeFondo = mDefaultColor;
-
+                String color = (String.valueOf(variableColorDeFondo));
+                new ColorPickerJava.ColorAgregar().execute(color);
 
             }
         });
@@ -101,6 +110,69 @@ public class ColorPickerJava extends AppCompatActivity {
                 });
         colorPickerDialogue.show();
     }
+    private class ColorAgregar extends AsyncTask<String, Void, String> {
+        @Override
+        protected String doInBackground(String... params) {
+            String elcolor = params[0];
+            String respuesta = "";
 
+            try {
+                URL url = new URL("https://toolboxcr.com/clientes/ulatina/lraddConsola.php?id=4&nombre= color&descripcion="+elcolor+"&rutaimagen=yo" );
+                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+                conn.setRequestMethod("GET");
+                int status = conn.getResponseCode();
+                BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return "1";
+        }
+
+        @Override
+        protected void onPostExecute(String respuesta) {
+            Toast.makeText(ColorPickerJava.this, "Color registrado", Toast.LENGTH_LONG).show();
+        }
+
+    }
+    private class MostrarColor extends AsyncTask<String, Void, String> {
+        @Override
+        protected String doInBackground(String... params) {
+            String URL = params[0];
+            String respuesta = "";
+
+            try {
+                java.net.URL url = new URL(URL);
+                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+                //conn.setRequestMethod("GET");
+                int status = conn.getResponseCode();
+                BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+
+                while (!respuesta.contains("null")) {
+                    respuesta += reader.readLine();
+                }
+                respuesta = respuesta.replace("null", "");
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return respuesta;
+        }
+
+        @Override
+        protected void onPostExecute(String respuesta) {
+
+            String contactos[] = respuesta.split(";");
+            for (int i=0; i<contactos.length; i++) {
+
+                String valores[] = contactos[i].split(",");
+
+                //Button btnPersona = new Button(getApplicationContext());
+                //btnPersona.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+                String color = valores[0];
+                //variableColorDeFondo = cast(color);
+            }
+        }
+
+    }
 
 }

@@ -5,15 +5,13 @@
       <map>
         <entry key="..\:/Users/laboratorio/AndroidStudioProjects/Proyecto5/Ubergaming2/app/src/main/res/layout/activity_agregarcontacto.xml" value="0.18541666666666667" />
         <entry key="..\:/Users/laboratorio/AndroidStudioProjects/Proyecto5/Ubergaming2/app/src/main/res/layout/activity_listado_consolas.xml" value="0.358695652173913" />
-        <entry key="..\:/Users/laboratorio/AndroidStudioProjects/Proyecto5/Ubergaming2/app/src/main/res/layout/activity_listado_consolas2.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/laboratorio/AndroidStudioProjects/Proyecto5/Ubergaming2/app/src/main/res/layout/activity_listado_consolas2.xml" value="0.15" />
+        <entry key="..\:/Users/laboratorio/AndroidStudioProjects/Proyecto5/Ubergaming2/app/src/main/res/layout/activity_listado_juego.xml" value="0.1" />
+        <entry key="..\:/Users/laboratorio/AndroidStudioProjects/Proyecto5/Ubergaming2/app/src/main/res/layout/activity_listado_juegos.xml" value="0.1" />
         <entry key="..\:/Users/laboratorio/AndroidStudioProjects/Proyecto5/Ubergaming2/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/laboratorio/AndroidStudioProjects/Proyecto5/Ubergaming2/app/src/main/res/layout/activity_user_account.xml" value="0.33" />
+        <entry key="..\:/Users/laboratorio/AndroidStudioProjects/Proyecto5/Ubergaming2/app/src/main/res/layout/fragment_listado_juegos.xml" value="0.1" />
         <entry key="..\:/Users/leo.roque/AndroidStudioProjects/Ubergaming2/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1985" />
-<<<<<<< HEAD
-=======
-        <entry key="..\:/Users/leo.roque/AndroidStudioProjects/Ubergaming2/app/src/main/res/layout/activity_agregarcontacto.xml" value="0.20555555555555555" />
-        <entry key="..\:/Users/leo.roque/AndroidStudioProjects/Ubergaming2/app/src/main/res/layout/activity_color_picker_java.xml" value="0.25052083333333336" />
->>>>>>> 7dad49125cbd54ee8388f336211a80c35a901a1f
         <entry key="..\:/Users/leo.roque/AndroidStudioProjects/Ubergaming2/app/src/main/res/layout/activity_detalle_juego.xml" value="0.268" />
         <entry key="..\:/Users/leo.roque/AndroidStudioProjects/Ubergaming2/app/src/main/res/layout/activity_ejemplo_mapa.xml" value="0.246875" />
         <entry key="..\:/Users/leo.roque/AndroidStudioProjects/Ubergaming2/app/src/main/res/layout/activity_linear_layout.xml" value="0.17980072463768115" />

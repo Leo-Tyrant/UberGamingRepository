@@ -19,7 +19,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/image_nintendo"
-        app:srcCompat="@drawable/microsoft" />
+        app:srcCompat="@drawable/microsoft"
+        />
 
 
     <ImageButton
@@ -29,12 +30,14 @@
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
         android:layout_marginBottom="17dp"
+        android:text=""
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toTopOf="@+id/image_microsoft"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/image_sony"
-        app:srcCompat="@drawable/nintendo" />
+        app:srcCompat="@drawable/nintendo"
+        />
 
 
     <ImageButton
@@ -45,11 +48,13 @@
         android:layout_marginEnd="30dp"
         android:layout_marginBottom="22dp"
         android:scaleType="fitCenter"
+        android:text=""
         app:layout_constraintBottom_toTopOf="@+id/image_nintendo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        app:srcCompat="@drawable/playstation" />
+        app:srcCompat="@drawable/playstation"
+         />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
@@ -82,8 +87,9 @@
             android:id="@+id/buttonCambiarColor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
             android:textSize="10dp"
+            android:layout_gravity="right"
+            android:layout_marginRight="140dp"
             android:text="Cambiar Color" />
 
     </com.google.android.material.bottomnavigation.BottomNavigationView>
