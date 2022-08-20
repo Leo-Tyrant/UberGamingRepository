@@ -61,6 +61,13 @@ class ListadoConsolas : AppCompatActivity() {
             startActivity(intent)
         }
 
+        //Boton Para el COLOR PICKER
+        val buttonCambiarColor = findViewById<Button>(R.id.buttonCambiarColor)
+        buttonCambiarColor.setOnClickListener{
+            val intent = Intent(this, ColorPickerJava::class.java)
+            startActivity(intent)
+        }
+
 
 
 
