@@ -33,12 +33,21 @@ class DetalleJuego : AppCompatActivity() {
             startActivity(intent)
         }
 
-        //Boton que manda a MI CUENTA
+        //Boton que lleva a Mi cuenta si el boton de de Login no tiene escrito la palabra "Login"
+        //Si la tiene lleva a la actividad Login
         val BotonMiCuenta = findViewById<Button>(R.id.BotonMiCuenta)
         BotonMiCuenta.setOnClickListener{
-            val intent = Intent(this, UserAccount::class.java)
-            startActivity(intent)
+            if (BotonEditar.text!= "Login"){
+
+                val intent = Intent(this, UserAccount::class.java)
+                startActivity(intent)
+            }else{
+                val intent = Intent(this, UsersLogin::class.java)
+                startActivity(intent)
+            }
+
         }
+
 
 
 

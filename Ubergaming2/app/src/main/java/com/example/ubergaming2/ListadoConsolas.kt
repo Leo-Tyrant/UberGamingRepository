@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageButton
+import android.widget.Toast
 
 class ListadoConsolas : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -54,12 +55,24 @@ class ListadoConsolas : AppCompatActivity() {
             startActivity(intent)
         }
 
-        //Boton que manda a MI CUENTA
-        val BotonMiCuenta = findViewById<Button>(R.id.BotonMiCuenta)
-        BotonMiCuenta.setOnClickListener{
-            val intent = Intent(this, UserAccount::class.java)
-            startActivity(intent)
-        }
+        //Boton que lleva a Mi cuenta si el boton de de Login no tiene escrito la palabra "Login"
+        //Si la tiene lleva a la actividad Login
+            val BotonMiCuenta = findViewById<Button>(R.id.BotonMiCuenta)
+            BotonMiCuenta.setOnClickListener{
+                if (BotonEditar.text!= "Login"){
+
+                    val intent = Intent(this, UserAccount::class.java)
+                    startActivity(intent)
+                }else{
+                    val intent = Intent(this, UsersLogin::class.java)
+                    startActivity(intent)
+                 }
+
+            }
+
+
+
+
 
 
 
