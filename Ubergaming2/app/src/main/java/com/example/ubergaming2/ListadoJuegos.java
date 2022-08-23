@@ -1,6 +1,7 @@
 package com.example.ubergaming2;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -22,6 +23,10 @@ public class ListadoJuegos extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listado_juegos);
+        int colorExtras = getIntent().getExtras().getInt("cadena");
+        int consolaID = getIntent().getExtras().getInt("consola");
+        ConstraintLayout li = (ConstraintLayout) findViewById(R.id.fondo);
+        li.setBackgroundColor(colorExtras);
         Button btnInicio = (Button) findViewById(R.id.BotonInicio);
         Button btnMicuenta = (Button) findViewById(R.id.BotonMiCuenta);
         Button btnLogin = (Button) findViewById(R.id.BotonEditar);
@@ -57,8 +62,7 @@ public class ListadoJuegos extends AppCompatActivity {
                 startActivity(login);
             }
         });
-        String valor = "Juego";
-        new ListadoJuegos.MostrarJuego().execute("https://toolboxcr.com/clientes/ulatina/lrselJuegos.php?cadena=" + valor);
+        new ListadoJuegos.MostrarJuego().execute("https://toolboxcr.com/clientes/ulatina/lrselJuegos.php?cadena=" + consolaID);
     }
     private class MostrarJuego extends AsyncTask<String, Void, String> {
         @Override
@@ -89,13 +93,22 @@ public class ListadoJuegos extends AppCompatActivity {
 
             String contactos[] = respuesta.split(";");
             for (int i=0; i<contactos.length; i++) {
-
                 String valores[] = contactos[i].split(",");
+                Button btnJuego = new Button(getApplicationContext());
+                btnJuego.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+                btnJuego.setText(valores[2]);
+                btnJuego.setId(Integer.parseInt(valores[0]));
+                ((LinearLayout)findViewById(R.id.resultados)).addView(btnJuego);
+                btnJuego.setOnClickListener(new View.OnClickListener(){
+                    @Override
+                    public void onClick(View v) {
+                        Intent login = new Intent(ListadoJuegos.this, DetalleJuego.class);
+                        startActivity(login);
+                    }
+                });
 
-                //Button btnPersona = new Button(getApplicationContext());
-                //btnPersona.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
                 Button btnRes = (Button) findViewById(R.id.image_residentevil);
-                btnRes.setText(valores[0] + " (" + valores[1] + ")"+ " (" + valores[2] + ")"+ " (" + valores[3] + ")" );
+                btnRes.setText(valores[2]);
             }
         }
 

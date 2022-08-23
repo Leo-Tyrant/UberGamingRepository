@@ -21,6 +21,7 @@ public class UserAccount extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_user_account);
         //Boton que manda a Inicio
         Button btnInicio = (Button) findViewById(R.id.BotonInicio);
