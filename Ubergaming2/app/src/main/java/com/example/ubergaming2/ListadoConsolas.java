@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.BufferedReader;
@@ -35,7 +36,8 @@ public class ListadoConsolas extends AppCompatActivity {
         ImageButton btnSony = (ImageButton) findViewById(R.id.image_sony);
         ImageButton btnNintendo = (ImageButton) findViewById(R.id.image_nintendo);
         ImageButton btnMicrosoft = (ImageButton) findViewById(R.id.image_microsoft);
-        
+
+
         //Acciones por hacer cuando se le da click a un boton
         btnSony.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,8 +108,20 @@ public class ListadoConsolas extends AppCompatActivity {
             }
         });
 
-
     }
+    @Override
+    public void onResume(){
+        super.onResume();
+        VariablesGlobales va = com.example.ubergaming2.VariablesGlobales.getInstance();
+        if(va.getCurrentUser()!=null){
+            Button user = findViewById(R.id.BotonLogin);
+            TextView dir = findViewById(R.id.direccionActual);
+            user.setEnabled(false);
+            user.setText(va.getCurrentUser());
+            dir.setText(va.getDireccion());
+        }
+    }
+
 
     private class TraeColor extends AsyncTask<String, Void, String> {
         @Override
@@ -139,9 +153,7 @@ public class ListadoConsolas extends AppCompatActivity {
             String colores[] = respuesta.split(";");
             for (int i = 0; i < colores.length; i++) {
                 String valores[] = colores[i].split(",");
-                String color = valores[1];
                 variableColorDeFondo = Integer.parseInt(valores[1]);
-                int ValorColor = Integer.parseInt(valores[1]);
                 ConstraintLayout li = (ConstraintLayout) findViewById(R.id.fondo);
                 li.setBackgroundColor(variableColorDeFondo);
             }

@@ -30,16 +30,7 @@ public class ListadoJuegos extends AppCompatActivity {
         Button btnInicio = (Button) findViewById(R.id.BotonInicio);
         Button btnMicuenta = (Button) findViewById(R.id.BotonMiCuenta);
         Button btnLogin = (Button) findViewById(R.id.BotonEditar);
-        Button btnRes = (Button) findViewById(R.id.image_residentevil);
-        Button btnzelda = (Button) findViewById(R.id.image_zelda);
-        Button btnHalo = (Button) findViewById(R.id.image_halo);
-        btnRes.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent res = new Intent(ListadoJuegos.this, DetalleJuego.class);
-                startActivity(res);
-            }
-        });
+
         btnInicio.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -106,9 +97,6 @@ public class ListadoJuegos extends AppCompatActivity {
                         startActivity(login);
                     }
                 });
-
-                Button btnRes = (Button) findViewById(R.id.image_residentevil);
-                btnRes.setText(valores[2]);
             }
         }
 

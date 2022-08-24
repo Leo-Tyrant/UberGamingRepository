@@ -14,26 +14,19 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonActualizar">
+        app:layout_constraintTop_toBottomOf="@+id/ButtonIngresar">
 
 
         <Button
             android:id="@+id/BotonInicio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="left"
+            android:layout_gravity="center_vertical"
             android:layout_marginLeft="50dp"
             android:text="Inicio"
             android:textSize="10dp" />
 
-        <Button
-            android:id="@+id/BotonMiCuenta"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:layout_marginRight="50dp"
-            android:text="Mi Cuenta"
-            android:textSize="10dp" />
+
 
     </com.google.android.material.bottomnavigation.BottomNavigationView>
 
@@ -70,26 +63,16 @@
             android:text="Ver Temperatura"
             android:textSize="10dp" />
 
-        <Button
-            android:id="@+id/BotonEditar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginLeft="10dp"
-            android:text="Login"
-            android:textSize="10dp" />
-
-
     </LinearLayout>
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress"
+        android:id="@+id/txtEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="39dp"
         android:ems="10"
         android:inputType="textEmailAddress"
-        app:layout_constraintBottom_toTopOf="@+id/buttonActualizar"
+        app:layout_constraintBottom_toTopOf="@+id/ButtonIngresar"
         app:layout_constraintStart_toStartOf="@+id/textViewEmail"
         app:layout_constraintTop_toBottomOf="@+id/textViewEmail" />
 
@@ -111,7 +94,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="14dp"
         android:text="Email"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextEmailAddress"
+        app:layout_constraintBottom_toTopOf="@+id/txtEmail"
         app:layout_constraintStart_toStartOf="@+id/EditNombre"
         app:layout_constraintTop_toBottomOf="@+id/EditNombre" />
 
@@ -127,15 +110,15 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewNombre" />
 
     <Button
-        android:id="@+id/buttonActualizar"
+        android:id="@+id/ButtonIngresar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="154dp"
         android:text="Ingresar"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextEmailAddress"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextEmailAddress"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress" />
+        app:layout_constraintEnd_toEndOf="@+id/txtEmail"
+        app:layout_constraintStart_toStartOf="@+id/txtEmail"
+        app:layout_constraintTop_toBottomOf="@+id/txtEmail" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
