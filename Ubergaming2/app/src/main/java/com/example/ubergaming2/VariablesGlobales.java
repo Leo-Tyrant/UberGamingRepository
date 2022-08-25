@@ -5,6 +5,7 @@ public class VariablesGlobales {
 
     String Direccion ;
     String CurrentUser;
+    int Color;
     private static final VariablesGlobales ourInstance = new VariablesGlobales();
     public static VariablesGlobales getInstance() {
         return ourInstance;
@@ -22,5 +23,11 @@ public class VariablesGlobales {
     }
     public String getCurrentUser() {
         return CurrentUser;
+    }
+    public void setColor(int co) {
+        this.Color = co;
+    }
+    public int getColor() {
+        return Color;
     }
 }

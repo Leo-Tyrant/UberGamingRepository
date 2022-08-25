@@ -1,8 +1,10 @@
 package com.example.ubergaming2;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -19,7 +21,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class ListadoConsolas extends AppCompatActivity {
-
+    VariablesGlobales va = com.example.ubergaming2.VariablesGlobales.getInstance();
     public int variableColorDeFondo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -102,9 +104,25 @@ public class ListadoConsolas extends AppCompatActivity {
         btnMicuenta.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent micuenta = new Intent(ListadoConsolas.this, UserAccount.class);
-                micuenta.putExtra("cadena", variableColorDeFondo);
-                startActivity(micuenta);
+                if(va.getCurrentUser()!=null) {
+                    Intent micuenta = new Intent(ListadoConsolas.this, UserAccount.class);
+                    startActivity(micuenta);
+                }else{
+                    AlertDialog.Builder dialogo1 = new AlertDialog.Builder(ListadoConsolas.this);
+                    dialogo1.setTitle("Login");
+                    dialogo1.setMessage("Es necesario hacer el login primero,¿Desea ir a Login?");
+                    dialogo1.setCancelable(false);
+                    dialogo1.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialogo1, int id) {
+                        }
+                    });
+                    dialogo1.setPositiveButton("Confirmar", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialogo1, int id) {
+                            startActivity(new Intent(ListadoConsolas.this, UsersLogin.class));
+                        }
+                    });
+                    dialogo1.show();
+                }
             }
         });
 
@@ -156,6 +174,8 @@ public class ListadoConsolas extends AppCompatActivity {
                 variableColorDeFondo = Integer.parseInt(valores[1]);
                 ConstraintLayout li = (ConstraintLayout) findViewById(R.id.fondo);
                 li.setBackgroundColor(variableColorDeFondo);
+
+                va.setColor(variableColorDeFondo);
             }
         }
 

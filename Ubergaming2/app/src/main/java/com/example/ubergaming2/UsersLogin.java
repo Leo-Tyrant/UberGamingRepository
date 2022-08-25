@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.BufferedReader;
@@ -24,9 +25,16 @@ public class UsersLogin extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_users_login);
-
+        VariablesGlobales va = com.example.ubergaming2.VariablesGlobales.getInstance();
+        ConstraintLayout li = (ConstraintLayout) findViewById(R.id.fondo);
+        li.setBackgroundColor(va.getColor());
+        TextView dir = findViewById(R.id.direccionActual);
         Button btnInicio = (Button) findViewById(R.id.BotonInicio);
         Button btnIngresar = (Button) findViewById(R.id.ButtonIngresar);
+        if(va.getCurrentUser()!=null){
+            dir.setText(va.getDireccion());
+        }
+
         btnInicio.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {

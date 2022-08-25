@@ -9,8 +9,10 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -23,6 +25,7 @@ public class ListadoJuegos extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listado_juegos);
+        VariablesGlobales va = com.example.ubergaming2.VariablesGlobales.getInstance();
         int colorExtras = getIntent().getExtras().getInt("cadena");
         int consolaID = getIntent().getExtras().getInt("consola");
         ConstraintLayout li = (ConstraintLayout) findViewById(R.id.fondo);
@@ -30,6 +33,12 @@ public class ListadoJuegos extends AppCompatActivity {
         Button btnInicio = (Button) findViewById(R.id.BotonInicio);
         Button btnMicuenta = (Button) findViewById(R.id.BotonMiCuenta);
         Button btnLogin = (Button) findViewById(R.id.BotonEditar);
+        TextView dir = findViewById(R.id.direccionActual);
+        if(va.getCurrentUser()!=null){
+            btnLogin.setEnabled(false);
+            btnLogin.setText(va.getCurrentUser());
+            dir.setText(va.getDireccion());
+        }
 
         btnInicio.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -87,6 +96,8 @@ public class ListadoJuegos extends AppCompatActivity {
                 String valores[] = contactos[i].split(",");
                 Button btnJuego = new Button(getApplicationContext());
                 btnJuego.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+                String idJuego = valores[0];
+                String nombreJuego = valores[2];
                 btnJuego.setText(valores[2]);
                 btnJuego.setId(Integer.parseInt(valores[0]));
                 ((LinearLayout)findViewById(R.id.resultados)).addView(btnJuego);
@@ -94,6 +105,9 @@ public class ListadoJuegos extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         Intent login = new Intent(ListadoJuegos.this, DetalleJuego.class);
+                        login.putExtra("idJuego", idJuego);
+                        login.putExtra("nombreJuego", nombreJuego);
+
                         startActivity(login);
                     }
                 });

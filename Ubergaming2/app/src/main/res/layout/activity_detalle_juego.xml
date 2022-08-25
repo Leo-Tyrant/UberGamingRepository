@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/fondo"
     tools:context=".DetalleJuego">
 
 
@@ -19,8 +20,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/textViewDescripcionJuego"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textViewTituloJuego"
-        app:srcCompat="@drawable/residentevil" />
+        app:layout_constraintTop_toTopOf="@+id/txtTitulo" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
@@ -86,12 +86,11 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/textViewTituloJuego"
+        android:id="@+id/txtTitulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
         android:layout_marginTop="91dp"
-        android:text="Resident Evil"
         app:layout_constraintStart_toStartOf="@+id/image_sony"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -114,7 +113,6 @@
         android:ems="10"
         android:gravity="start|top"
         android:inputType="textMultiLine"
-        android:text="Resident Evil, is a Japanese horror game series and media franchise created by Capcom. It consists of survival horror, third-person shooter and first-person shooter games, with players typically surviving in environments filled with zombies and other creatures. "
         android:textSize="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -149,7 +147,6 @@
         android:layout_marginEnd="8dp"
         android:ems="10"
         android:inputType="numberDecimal"
-        android:text="$10.50"
         android:textAlignment="textEnd"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/descripcionJuego" />

@@ -128,8 +128,5 @@ public class ColorPickerJava extends AppCompatActivity {
         protected void onPostExecute(String respuesta) {
             Toast.makeText(ColorPickerJava.this, "Color registrado", Toast.LENGTH_LONG).show();
         }
-
     }
-
-
 }
