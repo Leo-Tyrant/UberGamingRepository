@@ -63,13 +63,13 @@ public class ColorPickerJava extends AppCompatActivity {
         Button fondo = (Button) findViewById(R.id.buttonBackground);
         fondo.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                VariablesGlobales va = com.example.ubergaming2.VariablesGlobales.getInstance();
                 LinearLayout li = (LinearLayout) findViewById(R.id.bgcolor);
-                // Prueba estatica con color ROJO
-                //  li.setBackgroundColor(Color.RED);
                 //Asigna el color previamente seleccionado al fondo
                 li.setBackgroundColor(mDefaultColor);
                 //guarda en variable el color de fondo escogido
                 variableColorDeFondo = mDefaultColor;
+                va.setColor(mDefaultColor);
                 String color = (String.valueOf(variableColorDeFondo));
                 new ColorPickerJava.ColorAgregar().execute(color);
                 startActivity(new Intent(ColorPickerJava.this, ListadoConsolas.class));

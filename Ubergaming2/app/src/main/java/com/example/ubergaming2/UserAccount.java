@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -65,12 +66,40 @@ public class UserAccount extends AppCompatActivity {
         btnActulizar.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
+                new UserAccount.ActualizarUsuario().execute(va.getCurrentUser(), va.getDireccion());
                 Intent laPresentacion = new Intent(UserAccount.this, ListadoConsolas.class);
                 startActivity(laPresentacion);}
         });
         new UserAccount.MostrarCuenta().execute("https://toolboxcr.com/clientes/ulatina/lrselClientes.php?cadena="+va.getCurrentUser());
         new UserAccount.MostrarInfo().execute("https://toolboxcr.com/clientes/ulatina/lrselFacturas.php?cadena=" +va.getCurrentUser());
 
+    }
+    private class ActualizarUsuario extends AsyncTask<String, Void, String> {
+        @Override
+        protected String doInBackground(String... params) {
+            String id = params[0];
+            String nomCliente = params[1];
+            String nomJuego = params[2];
+            String precio = params[3];
+            String dir = params[4];
+            String respuesta = "";
+
+            try {
+                URL url = new URL("https://toolboxcr.com/clientes/ulatina/lraddClientes.php?id="+id+"&nombre="+nomCliente+"&correo="+nomJuego+"&precio="+precio+"&direccion="+dir);
+                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+                conn.setRequestMethod("GET");
+                int status = conn.getResponseCode();
+                BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return "1";
+        }
+
+        @Override
+        protected void onPostExecute(String respuesta) {
+            Toast.makeText(UserAccount.this, "Usuario actualizado", Toast.LENGTH_LONG).show();
+        }
     }
     private class MostrarCuenta extends AsyncTask<String, Void, String> {
         @Override
